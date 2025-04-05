@@ -2,14 +2,14 @@ pipeline {
     agent any
 
     environment {
-        GIT_CREDENTIALS = credentials('GitHub_SSH_Key') // ID from Jenkins cred
+        GIT_CREDENTIALS = credentials('GitHub_SSH_Key') // ID of the SSH key credential from Jenkins
     }
 
     stages {
         stage('Clone Repo') {
             steps {
                 script {
-                    // Using ssh-agent to authenticate using the provided credentials
+                    // Using the ssh-agent to authenticate using the provided credentials
                     sshagent([env.GIT_CREDENTIALS]) {
                         // Clone the repository from GitHub using the SSH URL
                         sh 'git clone -b main git@github.com:nbiman/postman-tests.git'
