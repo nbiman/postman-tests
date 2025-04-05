@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        GIT_CREDENTIALS = credentials('GitHub_SSH_Key') // Replace with your actual credential ID
+        GIT_CREDENTIALS = credentials('GitHub_SSH_Key') // ID from Jenkins cred
     }
 
     stages {
